@@ -23,7 +23,7 @@ class ProgramController extends Controller
     Public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            ‘name’ => ‘required|string|max:255’,
+            ‘title’ => ‘required|string|max:255’,
             ‘desc’ => ‘required’
         ]);
 
@@ -32,7 +32,7 @@ class ProgramController extends Controller
         }
 
         $program = Program::create([
-            ‘name’ => $request->name,
+            ‘title’ => $request->title,
             ‘desc’ => $request->desc
          ]);
         
@@ -64,7 +64,7 @@ class ProgramController extends Controller
     Public function update(Request $request, Program $program)
     {
         $validator = Validator::make($request->all(),[
-            ‘name’ => ‘required|string|max:255’,
+            ‘title’ => ‘required|string|max:255’,
             ‘desc’ => ‘required’
         ]);
 
@@ -72,7 +72,7 @@ class ProgramController extends Controller
             Return response()->json($validator->errors());       
         }
 
-        $program->name = $request->name;
+        $program->title = $request->title;
         $program->desc = $request->desc;
         $program->save();
         
