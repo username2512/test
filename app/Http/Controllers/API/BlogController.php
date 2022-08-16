@@ -57,7 +57,7 @@ Class BlogController extends BaseController
         }
 
         $program->title = $input['title'];
-        $program->desc = $input['description'];
+        $program->desc = $input['desc'];
         $program->save();
         
         Return $this->sendResponse(new ProgramResource($program), 'Post updated.');
